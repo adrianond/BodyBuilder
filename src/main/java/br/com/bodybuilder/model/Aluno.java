@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 
 import br.com.bodybuilder.service.impl.BodyBuilderBD;
 
-//teste gitLab
+
 
 @Entity
 @Table(name = "CadastrarAluno")
