@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html" 
+   xmlns:t="http://myfaces.apache.org/tomahawk"
+   xmlns:f="http://java.sun.com/jsf/core"
+   template="/templates/mainLayout.xhtml"
+   xmlns:p="http://primefaces.org/ui">
+<ui:define name="conteudo">
+	<h:form styleClass="alinharForm">
+			<p:panel header="Listar Exercicio">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Musculo"  title="Musculo" />
+					<p:selectOneMenu value="#{exercicioBean.musculo}" >
+					   <f:selectItem itemLabel="Selecione uma opção" itemValue="" />
+					   <f:selectItems value="#{exercicioBean.mapaMusculo}"/>
+					</p:selectOneMenu>
+					<h:panelGrid  styleClass="incluirTreino">
+					   <p:commandButton action="#{exercicioBean.listarExercicio}" value="OK"  title="OK"/>
+				    </h:panelGrid>
+				</h:panelGrid>
+				<p:dataTable  var="objeto" value="#{exercicioBean.exercicioRetornoList}">
+			      <p:column  headerText="Peito">
+				    <h:outputText value="#{objeto.peito}" />
+			      </p:column>
+			      <p:column rendered="#{incluirSolicitacaoFusaoCotistaBean.itemDestino.numeroContrato  != null}" headerText="Biceps">
+				    <h:outputText value="#{objeto.biceps}" />
+			      </p:column>
+		        </p:dataTable>
+         </p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
